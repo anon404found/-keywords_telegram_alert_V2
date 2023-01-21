@@ -1,0 +1,6 @@
+telethon
+peewee
+pysocks
+diskcache
+pyyaml
+asyncstdlib
