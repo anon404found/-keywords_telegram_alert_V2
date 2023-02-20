@@ -1,0 +1,346 @@
+└──╼ $nmap -sV --script vuln 192.168.2.1
+Starting Nmap 7.92 ( https://nmap.org ) at 2023-02-20 16:41 -03
+WARNING: Service 192.168.2.1:7100 had already soft-matched rtsp, but now soft-matched sip; ignoring second value
+WARNING: Service 192.168.2.1:7000 had already soft-matched rtsp, but now soft-matched sip; ignoring second value
+Stats: 0:01:43 elapsed; 0 hosts completed (1 up), 1 undergoing Service Scan
+Service scan Timing: About 42.86% done; ETC: 16:44 (0:01:41 remaining)
+Stats: 0:04:16 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 98.57% done; ETC: 16:45 (0:00:01 remaining)
+Stats: 0:06:21 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.34% done; ETC: 16:47 (0:00:01 remaining)
+Stats: 0:09:36 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.56% done; ETC: 16:50 (0:00:02 remaining)
+Stats: 0:09:37 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.56% done; ETC: 16:50 (0:00:02 remaining)
+Stats: 0:09:37 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.56% done; ETC: 16:50 (0:00:02 remaining)
+Stats: 0:09:38 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.56% done; ETC: 16:50 (0:00:02 remaining)
+Stats: 0:09:38 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.56% done; ETC: 16:50 (0:00:02 remaining)
+Stats: 0:09:38 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.56% done; ETC: 16:50 (0:00:02 remaining)
+Stats: 0:09:38 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.56% done; ETC: 16:50 (0:00:02 remaining)
+Stats: 0:09:38 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.56% done; ETC: 16:50 (0:00:02 remaining)
+Stats: 0:10:08 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.67% done; ETC: 16:51 (0:00:01 remaining)
+Stats: 0:10:10 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.67% done; ETC: 16:51 (0:00:01 remaining)
+Stats: 0:10:11 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.67% done; ETC: 16:51 (0:00:01 remaining)
+Stats: 0:10:11 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.67% done; ETC: 16:51 (0:00:01 remaining)
+Stats: 0:10:12 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.67% done; ETC: 16:51 (0:00:01 remaining)
+Stats: 0:10:14 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.67% done; ETC: 16:51 (0:00:01 remaining)
+Stats: 0:10:14 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.67% done; ETC: 16:51 (0:00:01 remaining)
+Stats: 0:11:37 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.67% done; ETC: 16:52 (0:00:02 remaining)
+Stats: 0:11:38 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.67% done; ETC: 16:52 (0:00:02 remaining)
+Stats: 0:11:39 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.67% done; ETC: 16:52 (0:00:02 remaining)
+Stats: 0:11:39 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.67% done; ETC: 16:52 (0:00:02 remaining)
+Nmap scan report for 192.168.2.1
+Host is up (0.0081s latency).
+Not shown: 993 filtered tcp ports (no-response)
+PORT     STATE SERVICE    VERSION
+80/tcp   open  http
+|_http-vuln-cve2013-7091: ERROR: Script execution failed (use -d to debug)
+|_http-passwd: ERROR: Script execution failed (use -d to debug)
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-phpself-xss: ERROR: Script execution failed (use -d to debug)
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+| http-slowloris-check: 
+|   VULNERABLE:
+|   Slowloris DOS attack
+|     State: LIKELY VULNERABLE
+|     IDs:  CVE:CVE-2007-6750
+|       Slowloris tries to keep many connections to the target web server open and hold
+|       them open as long as possible.  It accomplishes this by opening connections to
+|       the target web server and sending a partial request. By doing so, it starves
+|       the http server's resources causing Denial Of Service.
+|       
+|     Disclosure date: 2009-09-17
+|     References:
+|       http://ha.ckers.org/slowloris/
+|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.0 301 Moved Permanently
+|     Location: https:///index.php/nice%20ports%2C/Tri%6Eity.txt%2ebak
+|     Content-Length: 0
+|     Connection: close
+|     Date: Mon, 20 Feb 2023 19:44:14 GMT
+|   GenericLines: 
+|     HTTP/1.0 400 Bad Request
+|     Content-Type: text/html
+|     Content-Length: 345
+|     Connection: close
+|     Date: Mon, 20 Feb 2023 19:44:14 GMT
+|     <?xml version="1.0" encoding="iso-8859-1"?>
+|     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+|     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+|     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+|     <head>
+|     <title>400 Bad Request</title>
+|     </head>
+|     <body>
+|     <h1>400 Bad Request</h1>
+|     </body>
+|     </html>
+|   GetRequest, HTTPOptions: 
+|     HTTP/1.0 301 Moved Permanently
+|     Location: https:///index.php/
+|     Content-Length: 0
+|     Connection: close
+|     Date: Mon, 20 Feb 2023 19:44:08 GMT
+|   RTSPRequest: 
+|     HTTP/1.0 400 Bad Request
+|     Content-Type: text/html
+|     Content-Length: 345
+|     Connection: close
+|     Date: Mon, 20 Feb 2023 19:44:08 GMT
+|     <?xml version="1.0" encoding="iso-8859-1"?>
+|     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+|     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+|     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+|     <head>
+|     <title>400 Bad Request</title>
+|     </head>
+|     <body>
+|     <h1>400 Bad Request</h1>
+|     </body>
+|_    </html>
+443/tcp  open  ssl/https
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+| fingerprint-strings: 
+|   GetRequest: 
+|     HTTP/1.0 302 Found
+|     Set-Cookie: csrf_cookie=bfee7c72d6b6b59ba5628f08559e8256; expires=Mon, 20-Feb-2023 21:44:15 GMT; Max-Age=7200; path=/; secure; HttpOnly; SameSite=Strict
+|     Set-Cookie: ClickShareSession=a366377975c26861fa575ca0c39c95083a81c905; path=/; secure; HttpOnly; SameSite=Strict
+|     Expires: Thu, 19 Nov 1981 08:52:00 GMT
+|     Cache-Control: no-store, no-cache, must-revalidate
+|     Pragma: no-cache
+|     Location: https://192.168.2.1/login
+|     Content-type: text/html; charset=UTF-8
+|     Strict-Transport-Security: max-age=63072000; includeSubdomains; preload
+|     Content-Security-Policy: block-all-mixed-content; default-src 'self'; script-src 'unsafe-inline' 'self' 'unsafe-eval'; object-src 'none'; frame-ancestors 'none'; style-src 'self' 'unsafe-inline';
+|     X-Frame-Options: DENY
+|     X-Content-Type-Options: nosniff
+|     X-XSS-Protection: 1
+|     Content-Length: 0
+|     Connection: close
+|     Date: Mon, 20 Feb 2023 19:44:14 GMT
+|   HTTPOptions: 
+|     HTTP/1.0 302 Found
+|     Set-Cookie: csrf_cookie=9ffababcb1ad4d17f54376be3025ab3f; expires=Mon, 20-Feb-2023 21:44:15 GMT; Max-Age=7200; path=/; secure; HttpOnly; SameSite=Strict
+|     Set-Cookie: ClickShareSession=f6ed908b321d4fb227d23980b5a76fb07508b982; path=/; secure; HttpOnly; SameSite=Strict
+|     Expires: Thu, 19 Nov 1981 08:52:00 GMT
+|     Cache-Control: no-store, no-cache, must-revalidate
+|     Pragma: no-cache
+|     Location: https://192.168.2.1/login
+|     Content-type: text/html; charset=UTF-8
+|     Strict-Transport-Security: max-age=63072000; includeSubdomains; preload
+|     Content-Security-Policy: block-all-mixed-content; default-src 'self'; script-src 'unsafe-inline' 'self' 'unsafe-eval'; object-src 'none'; frame-ancestors 'none'; style-src 'self' 'unsafe-inline';
+|     X-Frame-Options: DENY
+|     X-Content-Type-Options: nosniff
+|     X-XSS-Protection: 1
+|     Content-Length: 0
+|     Connection: close
+|_    Date: Mon, 20 Feb 2023 19:44:15 GMT
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+| http-enum: 
+|_  /login/: Login page
+7000/tcp open  rtsp
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.0 401 Unauthorized
+|     WWW-Authenticate: Digest realm="AirPlay", nonce="68574ca8cb1e4ee9bb30c54f799f0911"
+|     Content-Length: 0
+|   GetRequest: 
+|     HTTP/1.0 401 Unauthorized
+|     WWW-Authenticate: Digest realm="AirPlay", nonce="c13a696082dc9ea8ec0ad90ae7862158"
+|     Content-Length: 0
+|   HTTPOptions: 
+|     HTTP/1.0 401 Unauthorized
+|     WWW-Authenticate: Digest realm="AirPlay", nonce="17f235821de96ffd93b9280552bb7b86"
+|     Content-Length: 0
+|   RTSPRequest: 
+|     RTSP/1.0 401 Unauthorized
+|     WWW-Authenticate: Digest realm="AirPlay", nonce="ea58028653369a0a6b115e686afc05ff"
+|     Content-Length: 0
+|     CSeq: 1
+|   SIPOptions: 
+|     SIP/2.0 401 Unauthorized
+|     WWW-Authenticate: Digest realm="AirPlay", nonce="ad79a1992f53e23a334c6754ea59f0d3"
+|_    Content-Length: 0
+7100/tcp open  rtsp
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.0 401 Unauthorized
+|     WWW-Authenticate: Digest realm="AirPlay", nonce="6e2a9b9a750cfb7a807dcccc6bd518c9"
+|     Content-Length: 0
+|   GetRequest: 
+|     HTTP/1.0 401 Unauthorized
+|     WWW-Authenticate: Digest realm="AirPlay", nonce="8be986450890c8b624edcabc52f6f199"
+|     Content-Length: 0
+|   HTTPOptions: 
+|     HTTP/1.0 401 Unauthorized
+|     WWW-Authenticate: Digest realm="AirPlay", nonce="7aebf91175df8d04d4eae0cc3c5f6cdc"
+|     Content-Length: 0
+|   RTSPRequest: 
+|     RTSP/1.0 401 Unauthorized
+|     WWW-Authenticate: Digest realm="AirPlay", nonce="17a3172a692fb21fa84d00e5b15e4a4b"
+|     Content-Length: 0
+|     CSeq: 1
+|   SIPOptions: 
+|     SIP/2.0 401 Unauthorized
+|     WWW-Authenticate: Digest realm="AirPlay", nonce="2e99e221da261a22cb8ee320455f39d6"
+|_    Content-Length: 0
+8008/tcp open  http
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+| http-slowloris-check: 
+|   VULNERABLE:
+|   Slowloris DOS attack
+|     State: LIKELY VULNERABLE
+|     IDs:  CVE:CVE-2007-6750
+|       Slowloris tries to keep many connections to the target web server open and hold
+|       them open as long as possible.  It accomplishes this by opening connections to
+|       the target web server and sending a partial request. By doing so, it starves
+|       the http server's resources causing Denial Of Service.
+|       
+|     Disclosure date: 2009-09-17
+|     References:
+|       http://ha.ckers.org/slowloris/
+|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750
+| fingerprint-strings: 
+|   FourOhFourRequest, GetRequest, HTTPOptions, RTSPRequest, SIPOptions: 
+|     HTTP/1.1 404 Not Found
+|     Content-Type: text/plain
+|     Content-Length: 14
+|_    Found
+8009/tcp open  ssl/ajp13?
+9999/tcp open  abyss?
+5 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port80-TCP:V=7.92%I=7%D=2/20%Time=63F3CCFB%P=x86_64-pc-linux-gnu%r(GetR
+SF:equest,8C,"HTTP/1\.0\x20301\x20Moved\x20Permanently\r\nLocation:\x20htt
+SF:ps:///index\.php/\r\nContent-Length:\x200\r\nConnection:\x20close\r\nDa
+SF:te:\x20Mon,\x2020\x20Feb\x202023\x2019:44:08\x20GMT\r\n\r\n")%r(HTTPOpt
+SF:ions,8C,"HTTP/1\.0\x20301\x20Moved\x20Permanently\r\nLocation:\x20https
+SF::///index\.php/\r\nContent-Length:\x200\r\nConnection:\x20close\r\nDate
+SF::\x20Mon,\x2020\x20Feb\x202023\x2019:44:08\x20GMT\r\n\r\n")%r(RTSPReque
+SF:st,1DB,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nContent-Type:\x20text/htm
+SF:l\r\nContent-Length:\x20345\r\nConnection:\x20close\r\nDate:\x20Mon,\x2
+SF:020\x20Feb\x202023\x2019:44:08\x20GMT\r\n\r\n<\?xml\x20version=\"1\.0\"
+SF:\x20encoding=\"iso-8859-1\"\?>\n<!DOCTYPE\x20html\x20PUBLIC\x20\"-//W3C
+SF://DTD\x20XHTML\x201\.0\x20Transitional//EN\"\n\x20\x20\x20\x20\x20\x20\
+SF:x20\x20\x20\"http://www\.w3\.org/TR/xhtml1/DTD/xhtml1-transitional\.dtd
+SF:\">\n<html\x20xmlns=\"http://www\.w3\.org/1999/xhtml\"\x20xml:lang=\"en
+SF:\"\x20lang=\"en\">\n\x20<head>\n\x20\x20<title>400\x20Bad\x20Request</t
+SF:itle>\n\x20</head>\n\x20<body>\n\x20\x20<h1>400\x20Bad\x20Request</h1>\
+SF:n\x20</body>\n</html>\n")%r(FourOhFourRequest,AF,"HTTP/1\.0\x20301\x20M
+SF:oved\x20Permanently\r\nLocation:\x20https:///index\.php/nice%20ports%2C
+SF:/Tri%6Eity\.txt%2ebak\r\nContent-Length:\x200\r\nConnection:\x20close\r
+SF:\nDate:\x20Mon,\x2020\x20Feb\x202023\x2019:44:14\x20GMT\r\n\r\n")%r(Gen
+SF:ericLines,1DB,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nContent-Type:\x20t
+SF:ext/html\r\nContent-Length:\x20345\r\nConnection:\x20close\r\nDate:\x20
+SF:Mon,\x2020\x20Feb\x202023\x2019:44:14\x20GMT\r\n\r\n<\?xml\x20version=\
+SF:"1\.0\"\x20encoding=\"iso-8859-1\"\?>\n<!DOCTYPE\x20html\x20PUBLIC\x20\
+SF:"-//W3C//DTD\x20XHTML\x201\.0\x20Transitional//EN\"\n\x20\x20\x20\x20\x
+SF:20\x20\x20\x20\x20\"http://www\.w3\.org/TR/xhtml1/DTD/xhtml1-transition
+SF:al\.dtd\">\n<html\x20xmlns=\"http://www\.w3\.org/1999/xhtml\"\x20xml:la
+SF:ng=\"en\"\x20lang=\"en\">\n\x20<head>\n\x20\x20<title>400\x20Bad\x20Req
+SF:uest</title>\n\x20</head>\n\x20<body>\n\x20\x20<h1>400\x20Bad\x20Reques
+SF:t</h1>\n\x20</body>\n</html>\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port443-TCP:V=7.92%T=SSL%I=7%D=2/20%Time=63F3CD01%P=x86_64-pc-linux-gnu
+SF:%r(GetRequest,384,"HTTP/1\.0\x20302\x20Found\r\nSet-Cookie:\x20csrf_coo
+SF:kie=bfee7c72d6b6b59ba5628f08559e8256;\x20expires=Mon,\x2020-Feb-2023\x2
+SF:021:44:15\x20GMT;\x20Max-Age=7200;\x20path=/;\x20secure;\x20HttpOnly;\x
+SF:20SameSite=Strict\r\nSet-Cookie:\x20ClickShareSession=a366377975c26861f
+SF:a575ca0c39c95083a81c905;\x20path=/;\x20secure;\x20HttpOnly;\x20SameSite
+SF:=Strict\r\nExpires:\x20Thu,\x2019\x20Nov\x201981\x2008:52:00\x20GMT\r\n
+SF:Cache-Control:\x20no-store,\x20no-cache,\x20must-revalidate\r\nPragma:\
+SF:x20no-cache\r\nLocation:\x20https://192\.168\.2\.1/login\r\nContent-typ
+SF:e:\x20text/html;\x20charset=UTF-8\r\nStrict-Transport-Security:\x20max-
+SF:age=63072000;\x20includeSubdomains;\x20preload\r\nContent-Security-Poli
+SF:cy:\x20block-all-mixed-content;\x20default-src\x20'self';\x20script-src
+SF:\x20'unsafe-inline'\x20'self'\x20'unsafe-eval';\x20object-src\x20'none'
+SF:;\x20frame-ancestors\x20'none';\x20style-src\x20'self'\x20'unsafe-inlin
+SF:e';\r\nX-Frame-Options:\x20DENY\r\nX-Content-Type-Options:\x20nosniff\r
+SF:\nX-XSS-Protection:\x201\r\nContent-Length:\x200\r\nConnection:\x20clos
+SF:e\r\nDate:\x20Mon,\x2020\x20Feb\x202023\x2019:44:14\x20GMT\r\n\r\n")%r(
+SF:HTTPOptions,384,"HTTP/1\.0\x20302\x20Found\r\nSet-Cookie:\x20csrf_cooki
+SF:e=9ffababcb1ad4d17f54376be3025ab3f;\x20expires=Mon,\x2020-Feb-2023\x202
+SF:1:44:15\x20GMT;\x20Max-Age=7200;\x20path=/;\x20secure;\x20HttpOnly;\x20
+SF:SameSite=Strict\r\nSet-Cookie:\x20ClickShareSession=f6ed908b321d4fb227d
+SF:23980b5a76fb07508b982;\x20path=/;\x20secure;\x20HttpOnly;\x20SameSite=S
+SF:trict\r\nExpires:\x20Thu,\x2019\x20Nov\x201981\x2008:52:00\x20GMT\r\nCa
+SF:che-Control:\x20no-store,\x20no-cache,\x20must-revalidate\r\nPragma:\x2
+SF:0no-cache\r\nLocation:\x20https://192\.168\.2\.1/login\r\nContent-type:
+SF:\x20text/html;\x20charset=UTF-8\r\nStrict-Transport-Security:\x20max-ag
+SF:e=63072000;\x20includeSubdomains;\x20preload\r\nContent-Security-Policy
+SF::\x20block-all-mixed-content;\x20default-src\x20'self';\x20script-src\x
+SF:20'unsafe-inline'\x20'self'\x20'unsafe-eval';\x20object-src\x20'none';\
+SF:x20frame-ancestors\x20'none';\x20style-src\x20'self'\x20'unsafe-inline'
+SF:;\r\nX-Frame-Options:\x20DENY\r\nX-Content-Type-Options:\x20nosniff\r\n
+SF:X-XSS-Protection:\x201\r\nContent-Length:\x200\r\nConnection:\x20close\
+SF:r\nDate:\x20Mon,\x2020\x20Feb\x202023\x2019:44:15\x20GMT\r\n\r\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port7000-TCP:V=7.92%I=7%D=2/20%Time=63F3CD19%P=x86_64-pc-linux-gnu%r(Ge
+SF:tRequest,84,"HTTP/1\.0\x20401\x20Unauthorized\r\nWWW-Authenticate:\x20D
+SF:igest\x20realm=\"AirPlay\",\x20nonce=\"c13a696082dc9ea8ec0ad90ae7862158
+SF:\"\r\nContent-Length:\x200\r\n\r\n")%r(HTTPOptions,84,"HTTP/1\.0\x20401
+SF:\x20Unauthorized\r\nWWW-Authenticate:\x20Digest\x20realm=\"AirPlay\",\x
+SF:20nonce=\"17f235821de96ffd93b9280552bb7b86\"\r\nContent-Length:\x200\r\
+SF:n\r\n")%r(RTSPRequest,8D,"RTSP/1\.0\x20401\x20Unauthorized\r\nWWW-Authe
+SF:nticate:\x20Digest\x20realm=\"AirPlay\",\x20nonce=\"ea58028653369a0a6b1
+SF:15e686afc05ff\"\r\nContent-Length:\x200\r\nCSeq:\x201\r\n\r\n")%r(FourO
+SF:hFourRequest,84,"HTTP/1\.0\x20401\x20Unauthorized\r\nWWW-Authenticate:\
+SF:x20Digest\x20realm=\"AirPlay\",\x20nonce=\"68574ca8cb1e4ee9bb30c54f799f
+SF:0911\"\r\nContent-Length:\x200\r\n\r\n")%r(SIPOptions,83,"SIP/2\.0\x204
+SF:01\x20Unauthorized\r\nWWW-Authenticate:\x20Digest\x20realm=\"AirPlay\",
+SF:\x20nonce=\"ad79a1992f53e23a334c6754ea59f0d3\"\r\nContent-Length:\x200\
+SF:r\n\r\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port7100-TCP:V=7.92%I=7%D=2/20%Time=63F3CD00%P=x86_64-pc-linux-gnu%r(Ge
+SF:tRequest,84,"HTTP/1\.0\x20401\x20Unauthorized\r\nWWW-Authenticate:\x20D
+SF:igest\x20realm=\"AirPlay\",\x20nonce=\"8be986450890c8b624edcabc52f6f199
+SF:\"\r\nContent-Length:\x200\r\n\r\n")%r(HTTPOptions,84,"HTTP/1\.0\x20401
+SF:\x20Unauthorized\r\nWWW-Authenticate:\x20Digest\x20realm=\"AirPlay\",\x
+SF:20nonce=\"7aebf91175df8d04d4eae0cc3c5f6cdc\"\r\nContent-Length:\x200\r\
+SF:n\r\n")%r(RTSPRequest,8D,"RTSP/1\.0\x20401\x20Unauthorized\r\nWWW-Authe
+SF:nticate:\x20Digest\x20realm=\"AirPlay\",\x20nonce=\"17a3172a692fb21fa84
+SF:d00e5b15e4a4b\"\r\nContent-Length:\x200\r\nCSeq:\x201\r\n\r\n")%r(FourO
+SF:hFourRequest,84,"HTTP/1\.0\x20401\x20Unauthorized\r\nWWW-Authenticate:\
+SF:x20Digest\x20realm=\"AirPlay\",\x20nonce=\"6e2a9b9a750cfb7a807dcccc6bd5
+SF:18c9\"\r\nContent-Length:\x200\r\n\r\n")%r(SIPOptions,83,"SIP/2\.0\x204
+SF:01\x20Unauthorized\r\nWWW-Authenticate:\x20Digest\x20realm=\"AirPlay\",
+SF:\x20nonce=\"2e99e221da261a22cb8ee320455f39d6\"\r\nContent-Length:\x200\
+SF:r\n\r\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8008-TCP:V=7.92%I=7%D=2/20%Time=63F3CD00%P=x86_64-pc-linux-gnu%r(Ge
+SF:tRequest,56,"HTTP/1\.1\x20404\x20Not\x20Found\r\nContent-Type:\x20text/
+SF:plain\r\nContent-Length:\x2014\r\n\r\n404\x20Not\x20Found\n")%r(FourOhF
+SF:ourRequest,56,"HTTP/1\.1\x20404\x20Not\x20Found\r\nContent-Type:\x20tex
+SF:t/plain\r\nContent-Length:\x2014\r\n\r\n404\x20Not\x20Found\n")%r(HTTPO
+SF:ptions,56,"HTTP/1\.1\x20404\x20Not\x20Found\r\nContent-Type:\x20text/pl
+SF:ain\r\nContent-Length:\x2014\r\n\r\n404\x20Not\x20Found\n")%r(RTSPReque
+SF:st,56,"HTTP/1\.1\x20404\x20Not\x20Found\r\nContent-Type:\x20text/plain\
+SF:r\nContent-Length:\x2014\r\n\r\n404\x20Not\x20Found\n")%r(SIPOptions,56
+SF:,"HTTP/1\.1\x20404\x20Not\x20Found\r\nContent-Type:\x20text/plain\r\nCo
+SF:ntent-Length:\x2014\r\n\r\n404\x20Not\x20Found\n");
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 713.22 seconds
